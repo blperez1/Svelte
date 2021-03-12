@@ -1,8 +1,11 @@
 <script>
-	let string = `this string contains some <strong>HTML!!!</strong>`
+	let count = 0;
+
+	function handleClick() {
+		count += 1;
+	}
 </script>
 
-<main>
-	<p>{@html string}</p>
-	<!-- dynamically render strings into html -->
-</main>
+<button on:click={handleClick}>
+	Clicked {count} {count === 1 ? 'time': 'times'}
+</button>
