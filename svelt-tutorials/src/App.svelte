@@ -1,18 +1,8 @@
 <script>
-	import Nested from './Nested.svelte'
-	let name = 'World';
-	let src = './favicon.png'
+	let string = `this string contains some <strong>HTML!!!</strong>`
 </script>
 
 <main>
-	<p>This is a paragraph.</p>
-	<Nested/>
+	<p>{@html string}</p>
+	<!-- dynamically render strings into html -->
 </main>
-
-<style>
-	p{
-		color:purple;
-		font-family: 'Comic Sans MS', cursive;
-		font-size: 2em;
-	}
-</style>
