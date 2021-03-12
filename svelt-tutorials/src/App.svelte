@@ -1,10 +1,22 @@
+<!-- Reactive statements -->
 <script>
-	let count = 0;
-	// reactive declarations 
+	let count = 9;
 
-	$: doubled = count * 2;
+	function handleClick() {
+		count += 1;
+	}
+
+	// $: {
+	// 		console.log(`the count is ${count}`);
+	// 		alert(`I SAID THE COUNT IS ${count}`);
+	// 	}
+
+	$: if (count >= 10) {
+		alert(`${count} is dangerouly high!`)
+	}
+	
 </script>
 
-<p>{count} doubled is {doubled}</p>
-<!-- {double} is reactive values -->
-<!-- {doubled} replaces {count * 2} and prevents duplicate code -->
+<button on:click={handleClick}>
+	Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
