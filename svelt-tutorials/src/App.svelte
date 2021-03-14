@@ -1,22 +1,18 @@
-<!-- Reactive statements -->
 <script>
-	let count = 9;
+	let numbers = [1, 2, 3, 4];
 
-	function handleClick() {
-		count += 1;
+	function addNumber() {
+		//array methods such as push and slice won't automatically update.
+		//following line will not update number
+		// numbers.push(numbers.length + 1);
+
+		//following line fixes this issue
+		numbers = [...numbers, numbers.length + 1];
 	}
-
-	// $: {
-	// 		console.log(`the count is ${count}`);
-	// 		alert(`I SAID THE COUNT IS ${count}`);
-	// 	}
-
-	$: if (count >= 10) {
-		alert(`${count} is dangerouly high!`)
-	}
-	
+	$: sum = numbers.reduce((t, n) => t + n, 0);
 </script>
 
-<button on:click={handleClick}>
-	Clicked {count} {count === 1 ? 'time' : 'times'}
-</button>
+<main>
+	<p>{numbers.join('+')} = {sum}</p>
+	<button on:click={addNumber}>Add a number</button>
+</main>
