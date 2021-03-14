@@ -1,18 +1,6 @@
+<!-- using props: must export variables from other components -->
 <script>
-	let numbers = [1, 2, 3, 4];
-
-	function addNumber() {
-		//array methods such as push and slice won't automatically update.
-		//following line will not update number
-		// numbers.push(numbers.length + 1);
-
-		//following line fixes this issue
-		numbers = [...numbers, numbers.length + 1];
-	}
-	$: sum = numbers.reduce((t, n) => t + n, 0);
+	import Nested from './Nested.svelte'
 </script>
 
-<main>
-	<p>{numbers.join('+')} = {sum}</p>
-	<button on:click={addNumber}>Add a number</button>
-</main>
+<Nested answer = {42}/>
