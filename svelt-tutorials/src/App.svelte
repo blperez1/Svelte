@@ -1,3 +1,4 @@
+<!-- if blocks -->
 <script>
 	import Info from './Info.svelte'
 
