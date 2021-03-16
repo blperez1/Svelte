@@ -1,15 +1,20 @@
 <!-- if blocks -->
 <script>
-	import Info from './Info.svelte'
+	let user = {loggedIn: false};
 
-	const pkg = {
-		name: 'svelte',
-		version: 3,
-		speed: 'blazing',
-		website: 'https://svelte.dev'
+	function toggle() {
+		user.loggedIn = !user.loggedIn;
 	}
 </script>
 
-<!-- next two lines will do the exact same thing. -->
-<Info {...pkg}/>
-<Info name={pkg.name} version={pkg.version} speed={pkg.speed} website={pkg.website} />
+{#if user.loggedIn}
+	<button on:click={toggle}>
+		Log out
+	</button>
+{/if}
+
+{#if !user.loggedIn} 
+	<button on:click={toggle}>
+		Log in
+	</button>
+{/if}
