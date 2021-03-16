@@ -1,19 +1,11 @@
-<!-- if blocks -->
 <script>
-	let user = {loggedIn: false};
-
-	function toggle() {
-		user.loggedIn = !user.loggedIn;
-	}
+	let x = 6
 </script>
 
-<!-- both if blocks are mutually exclusive. Replace with if/else -->
-{#if user.loggedIn}
-	<button on:click={toggle}>
-		Log out
-	</button>
-{:else} 
-	<button on:click={toggle}>
-		Log in
-	</button>
+{#if x > 10}
+	<p>{x} is greater than 10</p> 
+{:else if x < 5}
+	<p>{x} is less than 5</p>
+{:else}
+	<p>{x} is between 5 and 10</p>
 {/if}
