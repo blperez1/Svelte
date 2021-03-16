@@ -10,11 +10,11 @@ let cats = [
 
 <h1>The Famous Cats of Youtube</h1>
 
-
+<!-- grab current index -->
 <ul>
-	{#each cats as cat}
+	{#each cats as cat, i}
 		<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">
-			{cat.name}
+			{i + 1}: {cat.name}
 		</a></li>
 	<!-- close each block -->
 	{/each}
