@@ -1,11 +1,21 @@
 <script>
-	let x = 6
+
+let cats = [
+	{ id: 'J---aiyznGQ', name: 'Keyboard Cat' },
+	{ id: 'z_AbfPXTKms', name: 'Maru' },
+	{ id: 'OUtn3pvWmpg', name: 'Henri The Existential Cat' }
+];
+
 </script>
 
-{#if x > 10}
-	<p>{x} is greater than 10</p> 
-{:else if x < 5}
-	<p>{x} is less than 5</p>
-{:else}
-	<p>{x} is between 5 and 10</p>
-{/if}
+<h1>The Famous Cats of Youtube</h1>
+
+
+<ul>
+	{#each cats as cat}
+		<li><a target="_blank" href="https://www.youtube.com/watch?v={cat.id}">
+			{cat.name}
+		</a></li>
+	<!-- close each block -->
+	{/each}
+</ul>
